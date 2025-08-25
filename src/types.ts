@@ -16,13 +16,21 @@ export interface LevelConfig {
 
 export interface InventoryItem {
 	id: string;
-	type: 'chips' | 'soda' | 'map-fragment';
+	type: 'chips' | 'chips-limited' | 'soda' | 'soda-limited' | 'lunch' | 'map-fragment';
 	label: string;
 	levelId?: LevelId;
 	createdAt: number;
 }
 
-export type AvatarId = 'pirate' | 'explorer' | 'knight' | 'wizard' | 'archer' | 'ninja';
+export interface WeeklyProgress {
+	weekStartDate: string; // ISO date string
+	weekEndDate: string; // ISO date string
+	coinsEarned: number;
+	problemsCompleted: string[];
+	levelsUnlocked: LevelId[];
+	timeSpent: number; // in seconds
+	achievements: string[];
+}
 
 export interface Player {
 	id: string;
@@ -33,7 +41,12 @@ export interface Player {
 	completedProblems: Record<string, boolean>;
 	openedBoxes: Partial<Record<LevelId, true>>;
 	inventory: InventoryItem[];
+	purchasedLimitedItems: Record<string, boolean>; // Track limited items purchased
+	weeklyProgress: WeeklyProgress[]; // Track weekly progress history
+	currentWeekStart: string; // ISO date string of current week start
 }
+
+export type AvatarId = 'pirate' | 'explorer' | 'knight' | 'wizard' | 'archer' | 'ninja';
 
 export interface GameState {
 	currentPlayer: string;
@@ -45,7 +58,8 @@ export const LEVEL_ORDER: LevelId[] = ['1', '2A', '2B', '3A', '3B', '4', '5'];
 export const PLAYERS = [
 	{ id: 'gilbert', name: 'Gilbert' },
 	{ id: 'grace', name: 'Grace' },
-	{ id: 'brian', name: 'Brian' }
+	{ id: 'brian', name: 'Brian' },
+	{ id: 'eric', name: 'Eric' }
 ];
 
 export const AVATARS: Record<AvatarId, { emoji: string; name: string; description: string }> = {
