@@ -17,30 +17,30 @@ export function Header({ currentPlayer, leaderboard, onSwitchPlayer, onResetStud
 	return (
 		<div className="space-y-8">
 			{/* Logo and Leaderboard Row */}
-			<div className="flex items-start gap-2 mb-6 justify-start -ml-6 -pl-6">
+			<div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-2 mb-6 justify-start -ml-6 -pl-6">
 				{/* Logo */}
-				<div className="flex-shrink-0 mt-12 pr-6">
+				<div className="flex-shrink-0 mt-6 lg:mt-12 pr-0 lg:pr-6 w-full lg:w-auto">
 					<div 
-						className="relative overflow-hidden"
+						className="relative overflow-hidden mx-auto lg:mx-0"
 						style={{
 							backgroundImage: `url(${logoImage})`,
 							backgroundSize: '90%',
 							backgroundPosition: 'center',
 							backgroundRepeat: 'no-repeat',
-							width: '420px',
-							height: '380px'
+							width: '280px',
+							height: '240px'
 						}}
 					>
 					</div>
 				</div>
 
-									{/* Leaderboard */}
-					<div className="flex-1 p-6 mt-12">
+				{/* Leaderboard */}
+				<div className="flex-1 p-3 lg:p-6 mt-0 lg:mt-12 w-full">
 						<h2 className="text-2xl font-bold text-gray-200 mb-4 flex items-center gap-3">
 							<span className="text-3xl">🏆</span>
 							Leaderboard
 						</h2>
-					<div className="flex gap-4 justify-center">
+					<div className="flex flex-wrap gap-2 lg:gap-4 justify-center">
 						{leaderboard.map((player) => {
 							const isActive = player.id === currentPlayer.id;
 							const completedProblems = Object.values(player.completedProblems).filter(Boolean).length;
@@ -50,7 +50,7 @@ export function Header({ currentPlayer, leaderboard, onSwitchPlayer, onResetStud
 								<button
 								key={player.id}
 								onClick={() => onSwitchPlayer(player.id)}
-								className={`p-3 rounded-xl font-semibold text-sm transition-all duration-300 relative overflow-hidden w-48 h-52 ${
+								className={`p-2 lg:p-3 rounded-xl font-semibold text-xs lg:text-sm transition-all duration-300 relative overflow-hidden w-32 h-40 lg:w-48 lg:h-52 ${
 									isActive 
 										? 'bg-gradient-to-br from-gray-200 to-gray-300 text-gray-900 shadow-xl scale-105 border-2 border-gray-400' 
 										: 'bg-gradient-to-br from-gray-700 to-gray-800 text-white hover:from-gray-600 hover:to-gray-700 hover:scale-105 border-2 border-gray-600 hover:border-gray-500'
@@ -85,15 +85,15 @@ export function Header({ currentPlayer, leaderboard, onSwitchPlayer, onResetStud
 									)}
 									<div className={`text-center relative z-10 ${(player.avatar === 'wizard' || player.avatar === 'pirate' || player.avatar === 'explorer' || player.avatar === 'ninja') ? 'text-white' : ''}`}>
 										{/* Avatar and Name */}
-										<div className="flex items-center justify-center gap-2 mb-2">
-											<span className="text-3xl">{AVATARS[player.avatar].emoji}</span>
-											<span className="font-bold text-4xl">{player.name}</span>
+										<div className="flex items-center justify-center gap-1 lg:gap-2 mb-2">
+											<span className="text-xl lg:text-3xl">{AVATARS[player.avatar].emoji}</span>
+											<span className="font-bold text-lg lg:text-4xl">{player.name}</span>
 										</div>
 										
 										{/* Coins */}
 										<div className="flex items-center justify-center gap-1 mb-2">
-											<span className="text-yellow-300 text-lg">🪙</span>
-											<span className="font-bold text-lg">{player.coins}</span>
+											<span className="text-yellow-300 text-sm lg:text-lg">🪙</span>
+											<span className="font-bold text-sm lg:text-lg">{player.coins}</span>
 											<span className="text-xs opacity-75">coins</span>
 										</div>
 										

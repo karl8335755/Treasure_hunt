@@ -75,13 +75,13 @@ export function ProgressMap({ players, currentPlayer }: ProgressMapProps) {
   const map = createMap();
 
   return (
-    <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-600/30">
-      <h3 className="text-xl font-bold text-gray-200 mb-4 flex items-center gap-2">
+    <div className="bg-gray-800/30 rounded-xl p-3 lg:p-6 border border-gray-600/30">
+      <h3 className="text-lg lg:text-xl font-bold text-gray-200 mb-4 flex items-center gap-2">
         <span>🗺️</span>
         Progress Map
       </h3>
       
-      <div className="bg-gray-700/60 rounded-lg p-4 font-mono text-sm">
+      <div className="bg-gray-700/60 rounded-lg p-2 lg:p-4 font-mono text-xs lg:text-sm">
         {/* Map display */}
         <div className="space-y-1">
           {map.map((row, rowIndex) => (
@@ -89,11 +89,11 @@ export function ProgressMap({ players, currentPlayer }: ProgressMapProps) {
               {row.map((cell, colIndex) => (
                 <span 
                   key={colIndex} 
-                  className={`w-6 h-6 flex items-center justify-center ${
+                  className={`w-4 h-4 lg:w-6 lg:h-6 flex items-center justify-center ${
                     cell === '🏁' ? 'text-green-400' :
                     cell === '~' ? 'text-blue-400' :
                     cell === '.' ? 'text-yellow-600' :
-                    cell !== ' ' ? 'text-2xl' : 'text-gray-600'
+                    cell !== ' ' ? 'text-lg lg:text-2xl' : 'text-gray-600'
                   }`}
                 >
                   {cell}

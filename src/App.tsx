@@ -50,7 +50,7 @@ function App() {
 			{/* Gentle gradient overlay */}
 			<div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-gray-900/10"></div>
       
-      <div className="relative z-10 mx-auto max-w-7xl p-6">
+      <div className="relative z-10 mx-auto max-w-7xl p-3 lg:p-6">
         <Header 
           currentPlayer={currentPlayer} 
           leaderboard={leaderboard} 
@@ -110,7 +110,7 @@ function App() {
                       })}
                       
                       {/* ControlPanel */}
-                      <div className="flex flex-wrap justify-center items-center gap-4 bg-gradient-to-r from-gray-800/20 to-gray-900/20 rounded-2xl p-4 border border-gray-600/30">
+                      <div className="flex flex-wrap justify-center items-center gap-2 lg:gap-4 bg-gradient-to-r from-gray-800/20 to-gray-900/20 rounded-2xl p-3 lg:p-4 border border-gray-600/30">
                         {/* Avatar Selector */}
                         <AvatarSelector
                           currentAvatar={currentPlayer.avatar}
@@ -118,15 +118,15 @@ function App() {
                         />
 
                         {/* Coins */}
-                        <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/20 rounded-xl p-4 border-2 border-gray-600/50 w-32 h-32 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                          <div className="text-3xl mb-2">🪙</div>
-                          <div className="text-gray-200 font-bold text-xl">{currentPlayer.coins}</div>
-                          <div className="text-gray-400 text-sm text-center">Coins</div>
+                        <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/20 rounded-xl p-3 lg:p-4 border-2 border-gray-600/50 w-24 h-24 lg:w-32 lg:h-32 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                          <div className="text-2xl lg:text-3xl mb-1 lg:mb-2">🪙</div>
+                          <div className="text-gray-200 font-bold text-lg lg:text-xl">{currentPlayer.coins}</div>
+                          <div className="text-gray-400 text-xs lg:text-sm text-center">Coins</div>
                         </div>
 
                         {/* Timer Display */}
-                        <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/20 border-2 border-gray-600/50 rounded-xl p-4 w-32 h-32 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                          <div className="text-2xl font-mono font-bold text-gray-200 mb-2">
+                        <div className="bg-gradient-to-br from-gray-700/30 to-gray-800/20 border-2 border-gray-600/50 rounded-xl p-3 lg:p-4 w-24 h-24 lg:w-32 lg:h-32 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                          <div className="text-lg lg:text-2xl font-mono font-bold text-gray-200 mb-1 lg:mb-2">
                             {formatTime(timer)}
                           </div>
                           <div className="text-xs text-gray-400 text-center">
