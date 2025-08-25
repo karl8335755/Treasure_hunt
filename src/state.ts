@@ -101,12 +101,14 @@ export function useGameState() {
 		}
 		
 		// Ensure currentPlayer exists in the migrated players
-		if (!migratedPlayers[state.currentPlayer]) {
-			state.currentPlayer = 'gilbert';
+		let currentPlayer = state.currentPlayer;
+		if (!migratedPlayers[currentPlayer]) {
+			currentPlayer = 'gilbert';
 		}
 		
 		return {
 			...state,
+			currentPlayer,
 			players: migratedPlayers
 		};
 	}, [state]);
